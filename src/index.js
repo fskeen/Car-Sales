@@ -5,7 +5,7 @@ import App from './App';
 //redux
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { featureReducer } from './reducers/featureReducer'
+import { featureReducer } from './reducers/index'
 
 //css
 import 'bulma/css/bulma.css';

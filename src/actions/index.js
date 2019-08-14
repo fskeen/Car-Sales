@@ -3,7 +3,7 @@ export const addFeature = (feature) => {
     return { type: 'ADD_FEATURE', payload: feature };
 };
 
-export const removeFeature = (id) => {
+export const removeFeature = (feature) => {
     console.log("action: removeFeature invoked");
-    return { type: 'REMOVE_FEATURE', payload: id };
+    return { type: 'REMOVE_FEATURE', payload: feature };
 };

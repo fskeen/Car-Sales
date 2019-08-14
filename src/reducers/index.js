@@ -18,16 +18,22 @@ const initialState = {
 export const featureReducer = (state = initialState, action) => {
     switch(action.type) {
         case 'ADD_FEATURE':
-            return {
-                ...state.car,
-                features: [...state.car.features, action.payload]
+            return { // need to remove item from addtl feature list
+                ...state,
+                car: {
+                 ...state.car,
+                 features: [...state.car.features, action.payload]
+                }
             }
         case 'REMOVE_FEATURE':
-            return {
-                ...state.car,
-                features: state.car.features.filter(item => item.id !== action.payload)
+            return { // need to add item to addtl feature list
+                ...state,
+                car: {
+                  ...state.car,
+                features: state.car.features.filter(item => item.id !== action.payload.id)  
+                } 
             }
         default:
-            return;
+            return state;
     }
 }
