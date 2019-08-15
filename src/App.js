@@ -10,18 +10,20 @@ import Total from './components/Total';
 import { connect } from 'react-redux';
 import { addFeature, removeFeature } from './actions/index'
 
-const App = ({car, availableFeatures, additionalPrice, addFeature, removeFeature}) => {
+const App = (props) => {
+
+  const {car, availableFeatures, additionalPrice} = props;
 
   const remove = (item) => {
     // dispatch an action here to remove an item
-    removeFeature(item)
+    props.removeFeature(item)
     console.log('I am in the remove function. Why does this happen?')
   };
 
   const add = (item) => {
     // dispatch an action here to add an item
     // e.preventDefault()
-    addFeature(item)
+    props.addFeature(item)
     console.log(item)
     console.log('I am in the add function.')
   };
