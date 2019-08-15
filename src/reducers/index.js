@@ -20,6 +20,7 @@ export const featureReducer = (state = initialState, action) => {
         case 'ADD_FEATURE':
             return { // need to remove item from addtl feature list
                 ...state,
+                additionalPrice: state.additionalPrice + action.payload.price,
                 car: {
                  ...state.car,
                  features: [...state.car.features, action.payload]
@@ -28,6 +29,7 @@ export const featureReducer = (state = initialState, action) => {
         case 'REMOVE_FEATURE':
             return { // need to add item to addtl feature list
                 ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
                 car: {
                   ...state.car,
                 features: state.car.features.filter(item => item.id !== action.payload.id)  
